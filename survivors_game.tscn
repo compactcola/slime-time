@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://swcb8q32cvqi"]
+
+[ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="1_3cish"]
+[ext_resource type="Script" uid="uid://c1bfau31nfqio" path="res://survivors_game.gd" id="1_qqaft"]
+[ext_resource type="PackedScene" uid="uid://c0gpy0pye4jr6" path="res://tree.tscn" id="2_y3pti"]
+
+[sub_resource type="Curve2D" id="Curve2D_l26od"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -17, -203, 0, 0, 0, 0, 2139, -208, 0, 0, 0, 0, 2133, 1268, 0, 0, 0, 0, -234, 1267, 0, 0, 0, 0, -224, -193)
+}
+point_count = 5
+
+[node name="Game" type="Node2D" unique_id=1160656719]
+y_sort_enabled = true
+script = ExtResource("1_qqaft")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1383937457]
+layer = -10
+follow_viewport_enabled = true
+follow_viewport_scale = 0.001
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1351084197]
+offset_left = -998999.94
+offset_top = -816999.94
+offset_right = 1013999.94
+offset_bottom = 581999.94
+
+[node name="Player" parent="." unique_id=543819068 instance=ExtResource("1_3cish")]
+position = Vector2(988, 563)
+
+[node name="Path2D" type="Path2D" parent="Player" unique_id=464080747]
+position = Vector2(-988, -563)
+curve = SubResource("Curve2D_l26od")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D" unique_id=1766211479]
+unique_name_in_owner = true
+position = Vector2(-17, -203)
+rotation = -0.0023191054
+
+[node name="Trees" type="Node2D" parent="." unique_id=1800832327]
+
+[node name="StaticBody2D" parent="Trees" unique_id=1631230709 instance=ExtResource("2_y3pti")]
+position = Vector2(505, 786)
+
+[node name="StaticBody2D2" parent="Trees" unique_id=2063855936 instance=ExtResource("2_y3pti")]
+position = Vector2(1385, 397)
+
+[node name="StaticBody2D3" parent="Trees" unique_id=2031112898 instance=ExtResource("2_y3pti")]
+position = Vector2(199, 238)
+
+[node name="StaticBody2D4" parent="Trees" unique_id=2058234493 instance=ExtResource("2_y3pti")]
+position = Vector2(625, 133)
+
+[node name="StaticBody2D5" parent="Trees" unique_id=540943587 instance=ExtResource("2_y3pti")]
+position = Vector2(1231, 838)
+
+[node name="StaticBody2D6" parent="Trees" unique_id=541611558 instance=ExtResource("2_y3pti")]
+position = Vector2(1424, 915)
+
+[node name="StaticBody2D7" parent="Trees" unique_id=293603942 instance=ExtResource("2_y3pti")]
+position = Vector2(1774, 477)
+
+[node name="StaticBody2D8" parent="Trees" unique_id=228836754 instance=ExtResource("2_y3pti")]
+position = Vector2(77, 473)
+
+[node name="Timer" type="Timer" parent="." unique_id=60295561]
+wait_time = 0.5
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=778241919]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=1618616897]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6862745)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect" unique_id=1651054961]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -11.5
+offset_right = 45.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 175
+text = "Game Ovah"
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
