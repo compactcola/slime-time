@@ -2,15 +2,25 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Game/Player")
 
-var health = 3
+var health = 2
+var speed = 400
+var is_quick = false
+
 
 func _ready():
 	%Slime.play_walk()
+	if is_quick:
+		health = 1
+		speed = 800
+		scale = Vector2(0.75,0.75)
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction*400
+	
+	velocity = direction*speed
+
 	move_and_slide()
+		
 	
 func take_damage():
 	%Slime.play_hurt()
@@ -23,3 +33,4 @@ func take_damage():
 		smoke.global_position = global_position
 		
 		queue_free()
+		

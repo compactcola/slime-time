@@ -48,6 +48,30 @@ position = Vector2(1385, 397)
 [node name="StaticBody2D3" parent="Trees" unique_id=2031112898 instance=ExtResource("2_y3pti")]
 position = Vector2(199, 238)
 
+[node name="StaticBody2D9" parent="Trees" unique_id=1947132883 instance=ExtResource("2_y3pti")]
+position = Vector2(-287, 125)
+
+[node name="StaticBody2D10" parent="Trees" unique_id=1252539242 instance=ExtResource("2_y3pti")]
+position = Vector2(1441, -57)
+
+[node name="StaticBody2D11" parent="Trees" unique_id=1295894042 instance=ExtResource("2_y3pti")]
+position = Vector2(596, -167)
+
+[node name="StaticBody2D12" parent="Trees" unique_id=1077452745 instance=ExtResource("2_y3pti")]
+position = Vector2(216, -75)
+
+[node name="StaticBody2D13" parent="Trees" unique_id=2129795655 instance=ExtResource("2_y3pti")]
+position = Vector2(2080, 1253)
+
+[node name="StaticBody2D14" parent="Trees" unique_id=1305491356 instance=ExtResource("2_y3pti")]
+position = Vector2(-311, 1276)
+
+[node name="StaticBody2D15" parent="Trees" unique_id=1766018596 instance=ExtResource("2_y3pti")]
+position = Vector2(2379, 65)
+
+[node name="StaticBody2D16" parent="Trees" unique_id=1214855565 instance=ExtResource("2_y3pti")]
+position = Vector2(-65, -45)
+
 [node name="StaticBody2D4" parent="Trees" unique_id=2058234493 instance=ExtResource("2_y3pti")]
 position = Vector2(625, 133)
 
