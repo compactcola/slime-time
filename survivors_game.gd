@@ -20,3 +20,7 @@ func _on_timer_timeout() -> void:
 func _on_player_health_depleted() -> void:
 	%GameOver.show()
 	get_tree().paused = true
+	
+	await get_tree().create_timer(3.0).timeout
+	
+	get_tree().change_scene_to_file("res://main_menu.tscn")
